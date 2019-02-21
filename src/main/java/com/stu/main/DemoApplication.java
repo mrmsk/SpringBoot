@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan(basePackages= {"com.stu.main"})
+//@ComponentScan(basePackages= {"com.stu.main"})
 public class DemoApplication {
 
 	public static void main(String[] args) {
