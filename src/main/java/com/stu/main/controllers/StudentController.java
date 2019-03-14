@@ -10,25 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.stu.main.pojo.Student;
 import com.stu.main.service.StudentService;
 
-
 @RestController
-@RequestMapping(value="/home")
+@RequestMapping(value = "/home")
 public class StudentController {
 	@Autowired
 	private StudentService stuService;
-	
+
 	@PostMapping(value = "/registerstudent", consumes = "application/json", produces = "application/json")
 	public Student addStudent(@RequestBody Student student) {
-		System.out.println("111111111111111");
-		
+
 		stuService.addStudent(student);
-		
 
 		return null;
 
 	}
-	
-	@GetMapping(value="/test")
+
+	@GetMapping(value = "/test")
 	public Iterable<Student> testmethod() {
 		return stuService.temp();
 	}

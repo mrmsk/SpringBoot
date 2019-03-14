@@ -22,9 +22,18 @@ public class Student {
 	@JsonProperty("rno")
 	private Integer rno;
 	private String name;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "subId")
-	private List<Subjects> subjects;
+	//private List<Subjects> subjects;
+	
+	
+	
+	
+
+	public Student(Integer rno, String name, List<Subjects> subjects) {
+		super();
+		this.rno = rno;
+		this.name = name;
+		//this.subjects = subjects;
+	}
 
 	public Integer getRno() {
 		return rno;
@@ -42,12 +51,12 @@ public class Student {
 		this.name = name;
 	}
 
-	public List<Subjects> getSubjects() {
+	/*public List<Subjects> getSubjects() {
 		return subjects;
 	}
 
 	public void setSubjects(List<Subjects> subjects) {
 		this.subjects = subjects;
-	}
+	}*/
 
 }
