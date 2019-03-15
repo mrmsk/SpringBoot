@@ -2,6 +2,8 @@ package com.stu.main.pojo;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -13,12 +15,9 @@ import javax.persistence.Table;
 @Table(name="Subject")
 
 public class Subjects {
-/*	@OneToMany(cascade = CascadeType.ALL)  
-	@JoinColumn(name="qid")*/
 	@Id
 	private int subId;
 	private String subjectName;
-	@ManyToOne
 	private  Student student;
 
 	public int getSubId() {
