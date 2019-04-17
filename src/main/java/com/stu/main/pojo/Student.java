@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -21,19 +23,23 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonProperty("rno")
 	private Integer rno;
+	@JsonProperty("name")
 	private String name;
-	//private List<Subjects> subjects;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="subId")
+	@JsonProperty("subjects")
+	private List<Subjects> subjects;
 	
 	
 	
 	
 
-	public Student(Integer rno, String name, List<Subjects> subjects) {
+	/*public Student(Integer rno, String name, List<Subjects> subjects) {
 		super();
 		this.rno = rno;
 		this.name = name;
-		//this.subjects = subjects;
-	}
+		this.subjects = subjects;
+	}*/
 
 	public Integer getRno() {
 		return rno;
@@ -51,12 +57,12 @@ public class Student {
 		this.name = name;
 	}
 
-	/*public List<Subjects> getSubjects() {
+	public List<Subjects> getSubjects() {
 		return subjects;
 	}
 
 	public void setSubjects(List<Subjects> subjects) {
 		this.subjects = subjects;
-	}*/
+	}
 
 }
